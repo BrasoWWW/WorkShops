@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Progress Bar</title>
+  <style>
+  .container{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(101, 179, 162);
+  }
+  #barHolder{
+    width: 300px;
+    height: 50px;
+    position: relative;
+    background-color: black;
+    margin-left: 50px;
+
+  }
+  .myBar{
+    width: 1%;
+    height: 50px;
+    background-color: rgb(145, 45, 45);
+  }
+  h1{
+    font-family: Arial;
+    color: white;
+    text-align: center;
+  }
+  </style>
+</head>
+<body onload="move();">
+    <div class="container">
+      <h1>HTML5</h1>
+      <div id="barHolder">
+        <div class="myBar"></div>
+      </div>
+      <h1>CSS3</h1>
+      <div id="barHolder">
+        <div class="myBar"></div>
+      </div>
+      <h1>JavaScript</h1>
+      <div id="barHolder">
+        <div class="myBar"></div>
+      </div>
+    </div>
+    <script>
+    function move(){
+      var bar1 = document.getElementsByClassName('myBar')[0];
+      var bar2 = document.getElementsByClassName('myBar')[1];
+      var bar3 = document.getElementsByClassName('myBar')[2];
+      var width1 = 1;
+      var width2 = 1;
+      var width3 = 1;
+      var id1 = setInterval(animation, 15);
+      var id2 = setInterval(animation, 15);
+      var id3 = setInterval(animation, 15);
+      function animation(){
+          if(width1 >= 90){
+            clearInterval(id1);
+          }else {
+            width1++;
+            bar1.style.width = width1 + "%";
+          }
+          if(width2 >= 70){
+            clearInterval(id2);
+          }else {
+            width2++;
+            bar2.style.width = width2 + "%";
+          }
+          if(width3 >= 50){
+            clearInterval(id3);
+          }else {
+            width3++;
+            bar3.style.width = width3 + "%";
+          }
+        }
+      }
+
+    </script>
+</body>
+</html>

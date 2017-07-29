@@ -1,0 +1,84 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Comming Soon Page</title>
+  <style>
+  body{
+    margin: 0;
+    background-color: rgb(66, 66, 66);
+    color: white;
+  }
+  .logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 40px 40px;
+    font-size: 40px;
+  }
+  .countDownSection{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }
+  .footer{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    left: 50px;
+
+  }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <p>BrasoWWW</p>
+  </div>
+  <div class="countDownSection">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p id="time" style="font-size:30px"></p>
+  </div>
+  <div class="footer">
+    <p>Ceva text pus aici</p>
+  </div>
+</div>
+<script>
+    var countDownDate = new Date("Aug 5, 2017 13:00:00");
+
+    var countDownFunction = setInterval(function(){
+
+          var now = new Date().getTime();
+          // durata relativa intre date
+          var distance = countDownDate - now;
+
+          console.log(distance);
+          // functii matematice pentru vizualizarea duratei
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          //CONSOLE LOG pentru 'time'
+
+          console.log(days);
+          console.log(hours);
+          console.log(minutes);
+          console.log(seconds);
+
+          //Afisarea elementului
+          document.getElementById("time").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+          //oprire countDown
+          if (distance < 0) {
+              clearInterval(countdownfunction);
+              document.getElementById("time").innerHTML = "EXPIRED";
+          }
+  }, 1000);
+</script>
+</body>
+</html>
