@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Progress bar</title>
+</head>
+<style>
+  .container{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(123, 89, 128);
+    margin: 0 auto;
+}
+  .barHolder{
+    width: 70%;
+    height: 30px;
+    background-color: black;
+    margin-left: 40px;
+
+  }
+  #myBar{
+    width: 1%;
+    height: 30px;
+    background-color: red;
+  }
+</style>
+<body onload="move();">
+  <div class="container">
+      <div class="barHolder">
+        <div id="myBar">
+
+        </div>
+      </div>
+  </div>
+  <script>
+  function move(){
+    var bar = document.getElementById('myBar');
+    var width=1;
+    var interval=setInterval(animation, 15);
+    function animation(){
+      width++;
+      if(width>=100){
+        clearInterval(interval);
+      }
+      else{
+        width++;
+        bar.style.width=width+'%';
+      }
+    }
+
+  }
+
+  </script>
+</body>
+</html>
